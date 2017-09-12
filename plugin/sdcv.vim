@@ -16,8 +16,9 @@ function! SearchWord(mode)
 	windo if
 				\ expand("%")=="diCt-tmp" |
 				\ q!|endif
-    set splitright
-	25vsp diCt-tmp
+    set splitbelow
+	10sp diCt-tmp
+    set rightleft
 	setlocal buftype=nofile bufhidden=hide noswapfile
 	1s/^/\=expl/
 	1
