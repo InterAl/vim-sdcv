@@ -9,7 +9,7 @@ function! SearchWord(mode)
         let search_str = expand('<cword>')
     endif
 
-    let cmd = 'sdcv --utf8-output -n "' . search_str . '"'
+    let cmd = '~/dotfiles/scripts/morfix.sh "' . search_str . '"'
 
 	let expl=system(cmd)
 
@@ -18,8 +18,9 @@ function! SearchWord(mode)
 				\ q!|endif
     set splitbelow
 	10sp diCt-tmp
-    set rightleft
 	setlocal buftype=nofile bufhidden=hide noswapfile
+    let expl = search_str . "\n" . "**********\n" . expl
+    1,$d
 	1s/^/\=expl/
 	1
 endfunction
